@@ -1,59 +1,60 @@
 /*=====================================================
 meta: {
   title: "jquery-opacity-rollover.js",
-  varsion: "2.0",
-  copy: "copyright 2009 h2ham (hasegawa@hamworks)",
+  version: "2.1",
+  copy: "copyright 2009 h2ham (hasegawa@hamworks.net)",
   license: "MIT License(http://www.opensource.org/licenses/mit-license.php)",
   author: "THE HAM MEDIA - http://h2ham.seesaa.net/",
   date: "2009-07-21"
+  modify: "2009-07-23"
 }
 =====================================================*/
 (function($) {
   
-  $.fn.opOver = function(op,oa,durationp,durationa,options){
+  $.fn.opOver = function(op,oa,durationp,durationa){
     
-    var c = $.extend({
-      opacityDef:op? op:1.0,
-      opacityOn:oa? oa:0.6,
-      fadeTime:durationp? durationp:'fast',
-      fadeTimeOff:durationa? durationa:'fast'
-    },options);
+    var c = {
+      op:op? op:1.0,
+      oa:oa? oa:0.6,
+      durationp:durationp? durationp:'fast',
+      durationa:durationa? durationa:'fast'
+    };
     
 
     $(this).each(function(){
       $(this).css({
-          opacity: c.opacityDef,
-          filter: "alpha(opacity="+c.opacityDef*100+")"
+          opacity: c.op,
+          filter: "alpha(opacity="+c.op*100+")"
         }).hover(function(){
-          $(this).fadeTo(c.fadeTime,c.opacityOn);
+          $(this).fadeTo(c.durationp,c.oa);
         },function(){
-          $(this).fadeTo(c.fadeTimeOff,c.opacityDef);
+          $(this).fadeTo(c.durationa,c.op);
         });
     });
   };
   
-  $.fn.wink = function(durationp,op,oa,options){
+  $.fn.wink = function(durationp,op,oa){
 
-    var c = $.extend({
-      fadeTime:durationp? durationp:'slow',
-      opacityDef:op? op:1.0,
-      opacityOn:oa? oa:0.2
-    },options);
+    var c = {
+      durationp:durationp? durationp:'slow',
+      op:op? op:1.0,
+      oa:oa? oa:0.2
+    };
     
     $(this).each(function(){
       $(this) .css({
-          opacity: c.opacityDef,
-          filter: "alpha(opacity="+c.opacityDef*100+")"
+          opacity: c.op,
+          filter: "alpha(opacity="+c.op*100+")"
         }).hover(function(){
         $(this).css({
-          opacity: c.opacityOn,
-          filter: "alpha(opacity="+c.opacityOn*100+")"
+          opacity: c.oa,
+          filter: "alpha(opacity="+c.oa*100+")"
         });
-        $(this).fadeTo(c.fadeTime,c.opacityDef);
+        $(this).fadeTo(c.durationp,c.op);
       },function(){
         $(this).css({
-          opacity: c.opacityDef,
-          filter: "alpha(opacity="+c.opacityDef*100+")"
+          opacity: c.op,
+          filter: "alpha(opacity="+c.op*100+")"
         });
       });
     });
