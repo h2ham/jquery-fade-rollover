@@ -1,6 +1,6 @@
 {
   "name": "fade-rollover",
-  "title": "jQuery Fade Rollover",
+  "title": "jQuery Fade Rollover Plugin",
   "description": "A simple jQuery plugin which makes elements transparent with a rollover.",
   "keywords": [
     "fade",

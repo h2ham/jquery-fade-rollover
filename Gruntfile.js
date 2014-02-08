@@ -5,9 +5,6 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    qunit: {
-      all: ['test/index.html']
-    },
     jshint: {
       files: [
         'Gruntfile.js',
@@ -16,7 +13,7 @@ module.exports = function (grunt) {
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> v<%= pkg.version %> | <%= pkg.license %> */\n'
+        banner: '/*! <%= pkg.title %> v<%= pkg.version %> | <%= pkg.license %> */\n'
       },
       build: {
         files: {
@@ -25,9 +22,10 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      files: [
-        'jquery.fade-rollover.js'
-      ]
+      build: {
+        files: ['jquery.fade-rollover.js'],
+        tasks: ['jshint', 'uglify']
+      },
     }
   });
 

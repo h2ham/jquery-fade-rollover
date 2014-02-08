@@ -1,5 +1,6 @@
 {
   "name": "fade-rollover",
+  "title": "jQuery Fade Rollover Plugin",
   "version": "2.2.0",
   "description": "A simple jQuery plugin which makes elements transparent with a rollover.",
   "main": "Gruntfile.js",
